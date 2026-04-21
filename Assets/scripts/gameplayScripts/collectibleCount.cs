@@ -15,4 +15,8 @@ public class collectibleCount : MonoBehaviour
     {
         Debug.Log(++count);
     }
+    public int getCount()
+    {
+        return count;
+    }
 }
