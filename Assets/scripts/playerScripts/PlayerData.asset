@@ -15,8 +15,8 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 6
   jumpPower: 5
-  gravity: 10
-  TimeSinceStep: 1
+  gravity: 20
+  TimeSinceStep: 111.66190325422212
   StepCoolDowntime: 1
   lookSpeed: 2
   lookXLimit: 90
