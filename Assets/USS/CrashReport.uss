@@ -6,6 +6,7 @@
     align-content: flex-start;
     justify-content: flex-start;
     color: rgb(255, 0, 0);
+    font-size: 20px;
 }
 
 .button {
@@ -24,4 +25,15 @@
     width: 100px;
     height: 100px;
     -unity-text-align: middle-center;
+}
+
+.header2 {
+    background-size: 100% 10%;
+    aspect-ratio: auto;
+    scale: 1 0.25;
+    translate: 0 -45%;
+    background-color: rgb(14, 52, 149);
+}
+
+.image {
 }
