@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PopUp : MonoBehaviour
@@ -37,7 +38,7 @@ public class PopUp : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        Debug.Log("Pressed");
+        SceneManager.LoadSceneAsync(0);
         HidePopup();
     }
 

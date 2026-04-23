@@ -1,0 +1,30 @@
+:root {
+}
+
+.mainmenu {
+}
+
+.title {
+    justify-content: flex-start;
+    -unity-text-align: upper-center;
+    font-size: 100px;
+    -unity-font-definition: url("project://database/Assets/Materials/font/Cowboy%20Movie.ttf?fileID=12800000&guid=d249f5552324e1e40b05de6b3ce49396&type=3#Cowboy Movie");
+    height: 302px;
+}
+
+.button {
+    background-color: rgb(96, 46, 10);
+    -unity-text-align: middle-center;
+    height: 133px;
+    width: 182px;
+    font-size: 44px;
+    translate: 850px 200px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
