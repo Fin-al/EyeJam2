@@ -1,16 +1,51 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class popUp : MonoBehaviour
+public class PopUp : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private UIDocument _document;
+    private Button _popUpButton;
+    private VisualElement _root;  
+
+    public static PopUp instance;
+
+    private void Awake()
     {
-        
+        if (instance == null) instance = this;
+
+        _document = GetComponent<UIDocument>();
+        _root = _document.rootVisualElement;
+
+        _popUpButton = _root.Q<Button>("ButtonExit");
+
+        if (_popUpButton != null)
+        {
+            _popUpButton.clicked += OnButtonClicked;
+        }
+        HidePopup();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowPopup()
     {
-        
+        _root.style.display = DisplayStyle.Flex;
+    }
+
+    public void HidePopup()
+    {
+        _root.style.display = DisplayStyle.None;
+    }
+
+    private void OnButtonClicked()
+    {
+        Debug.Log("Pressed");
+        HidePopup();
+    }
+
+    private void OnDestroy() 
+    {
+        if (_popUpButton != null)
+        {
+            _popUpButton.clicked -= OnButtonClicked;
+        }
     }
 }

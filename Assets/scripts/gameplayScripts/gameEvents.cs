@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class gameEvents : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public collectibleCount count;
+    public FPSController player;
+    private bool pop;
+    private void Awake()
     {
-        
+        pop = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(count.getCount() == 7 && !pop)
+        {
+            crash();
+        }
+    }
+    void crash()
+    {
+        player.enabled = false;
+        PopUp.instance.ShowPopup();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        pop = true;
     }
 }
