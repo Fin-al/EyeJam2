@@ -9,6 +9,7 @@ public class gameEvents : MonoBehaviour
     private void Awake()
     {
         pop1 = playerData.instance.pop;
+        text.text = $"TALK TO FARMER MAULDER";
     }
     void Update()
     {

@@ -189,7 +189,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e1669adba1497542a8adadf725117dd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -285,6 +285,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ffe7fcac28c0645841bcb24af1e0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  click:
+    Guid:
+      Data1: 1376981529
+      Data2: 1075220447
+      Data3: -1175092605
+      Data4: 2041632690
+    Path: event:/MenuSFX/ButtonClick
+  hover:
+    Guid:
+      Data1: 281621519
+      Data2: 1229844638
+      Data3: 1655899307
+      Data4: -1225129618
+    Path: event:/MenuSFX/ButtonHover
 --- !u!1 &171783402
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e579134d09813cf47a0ac77ff21c3413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerData
-  pop1: 0
+  pop: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

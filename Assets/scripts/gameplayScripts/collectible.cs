@@ -14,7 +14,7 @@ public class collectible : MonoBehaviour
     }
     void Update()
     {
-        transform.localRotation = Quaternion.Euler(90f,Time.time * 100f,0);
+        transform.localRotation = Quaternion.Euler(-90f,Time.time * 100f,0);
         float newY = startPos.y + Mathf.Sin(Time.time * bobSpeed) * bobIntensity;
         transform.position = new Vector3(startPos.x, newY, startPos.z);
 

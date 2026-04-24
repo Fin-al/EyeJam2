@@ -98,10 +98,10 @@ public class FPSController : MonoBehaviour
              }
 
          }*/
-        player.TimeSinceStep += Time.deltaTime;
+       // player.TimeSinceStep += Time.deltaTime;
         //tilt camera
 
-        #region Crouch
+        /*#region Crouch
         if (Input.GetKey(KeyCode.LeftControl))
         {
 
@@ -114,8 +114,8 @@ public class FPSController : MonoBehaviour
             characterController.height = 2f;
             characterController.center = Vector3.zero;
         }
-
-        #endregion
+        
+        #endregion*/
 
     }
     public Boolean isrunning()

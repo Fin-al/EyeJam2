@@ -1,13 +1,15 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static Unity.Collections.AllocatorManager;
 
 public class PopUp : MonoBehaviour
 {
     private UIDocument _document;
     private Button _popUpButton;
-    private VisualElement _root;  
-
+    private VisualElement _root;
+    public EventReference pop;
     public static PopUp instance;
 
     private void Awake()
@@ -29,6 +31,7 @@ public class PopUp : MonoBehaviour
     public void ShowPopup()
     {
         _root.style.display = DisplayStyle.Flex;
+        RuntimeManager.PlayOneShot(pop);
     }
 
     public void HidePopup()
