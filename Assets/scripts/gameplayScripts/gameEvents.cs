@@ -1,7 +1,9 @@
+using FMODUnity;
 using UnityEngine;
 
 public class gameEvents : MonoBehaviour
 {
+    public EventReference ambience;
     public collectibleCount count;
     public FPSController player;
     private int pop1;
