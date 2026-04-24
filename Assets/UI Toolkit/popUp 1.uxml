@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Image source="project://database/Assets/MainMenu/error.png?fileID=2800000&amp;guid=87ed685a807b79b4681f05525bde241d&amp;type=3#error" name="Restart" style="height: 1080px; width: 1920px;">
+            <ui:Button text="" icon-image="" name="ButtonExit" style="height: 60px; width: 195px; -unity-text-align: middle-center; translate: 865px 590px; opacity: 1; font-size: 14px; scale: 1 1; -unity-material: url(&quot;&quot;); background-size: 195px 60px; background-image: url(&quot;project://database/Assets/MainMenu/new_restart.png?fileID=2800000&amp;guid=6acb2dc346e1ec1479d537c00ce57ae0&amp;type=3#new_restart&quot;);"/>
+        </ui:Image>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,19 +1,42 @@
+using FMODUnity;
 using UnityEngine;
 
 public class gameEvents : MonoBehaviour
 {
+    public EventReference ambience;
     public collectibleCount count;
     public FPSController player;
-    private bool pop;
+    private int pop1;
+    public TMPro.TMP_Text text;
     private void Awake()
     {
-        pop = false;
+        pop1 = playerData.instance.pop;
+        text.text = $"TALK TO FARMER MAULDER";
     }
     void Update()
     {
-        if(count.getCount() == 7 && !pop)
+        switch (pop1)
         {
-            crash();
+            case 1:
+                {
+                    if (count.getCount() == 7)
+                    {
+                        crash();
+                        
+                        playerData.instance.changePop(2);
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (count.getCount() == 7)
+                    {
+                        text.text = $"RETURN THE APPLES TO FARMER MAULDER";
+                    }
+                    
+                    break;
+                }
+            default: {  break; }
         }
     }
     void crash()
@@ -23,6 +46,6 @@ public class gameEvents : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
-        pop = true;
+        
     }
 }
