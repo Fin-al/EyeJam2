@@ -9555,7 +9555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: 7d56fd1e91f137f48844f38d3f20528d, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 1c7eb8a7c1a91fc499e4f646d80e4117, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9a340f62c9f86b245bdd04aa70eefd33, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -9591,6 +9591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d631a8aa83fe3844bb80bc1250924d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopUp
+  pop:
+    Guid:
+      Data1: -1411655012
+      Data2: 1137127151
+      Data3: 261443517
+      Data4: -1997178191
+    Path: event:/MenuSFX/CrashPopup
 --- !u!1 &730510975
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,8 +12901,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18236e8833db07d43a50295d16d86a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::gameEvents
+  ambience:
+    Guid:
+      Data1: 330743596
+      Data2: 1296316627
+      Data3: -820394821
+      Data4: 611340221
+    Path: event:/GameSFX/OutsideAmbience
   count: {fileID: 1331213157}
   player: {fileID: 662684464}
+  text: {fileID: 1331213158}
 --- !u!4 &1047904206
 Transform:
   m_ObjectHideFlags: 0
@@ -16508,9 +16523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '???
-
-'
+  m_text: TALK TO FARMER MAULDER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0f0a42885358dc419e41bb0336d8782, type: 2}
   m_sharedMaterial: {fileID: -3619749575151955535, guid: f0f0a42885358dc419e41bb0336d8782, type: 2}
@@ -16537,7 +16550,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.95
+  m_fontSize: 22.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
