@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
     private UIDocument _document;
-    private Button start;
+    private Button start,end ;
     private VisualElement _root;
 
      
@@ -32,10 +32,12 @@ public class MainMenu : MonoBehaviour
         _root = _document.rootVisualElement;
 
         start = _root.Q<Button>("NewGame");
+        end = _root.Q<Button>("Exit");
 
-        if (start != null)
+        if (start != null && end!=null)
         {
             start.clicked += OnButtonClicked;
+            end.clicked += exit;
         }
         Debug.Log("HELLO");
     }
@@ -51,6 +53,7 @@ public class MainMenu : MonoBehaviour
     }
     private void exit()
     {
+        playerData.instance.changePop(1);
         Application.Quit();
     }
 }

@@ -5,6 +5,7 @@ public class gameEvents : MonoBehaviour
     public collectibleCount count;
     public FPSController player;
     private int pop1;
+    public TMPro.TMP_Text text;
     private void Awake()
     {
         pop1 = playerData.instance.pop;
@@ -19,10 +20,20 @@ public class gameEvents : MonoBehaviour
                     {
                         crash();
                         
-                        playerData.instance.pop = 2;
+                        playerData.instance.changePop(2);
                     }
                     break;
                 }
+            case 2:
+                {
+                    if (count.getCount() == 7)
+                    {
+                        text.text = $"RETURN THE APPLES TO FARMER MAULDER";
+                    }
+                    
+                    break;
+                }
+            default: {  break; }
         }
     }
     void crash()

@@ -6,11 +6,26 @@ public class playerData : MonoBehaviour
     public int pop;
     void Awake()
     {
+       
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
         instance = this;
-        pop = 1;
+        DontDestroyOnLoad(this.gameObject);
+        pop = PlayerPrefs.GetInt("SavedPops", 0);
+        Debug.Log("Total Pops is : " + pop);
     }
-    public void changePop(int newpop)
+    public void changePop(int amount)
     {
-        pop = newpop;
+        
+        pop = amount;
+ 
+        PlayerPrefs.SetInt("SavedPops", pop);
+        PlayerPrefs.Save();
+
+        Debug.Log("Total Pops is now: " + pop);
     }
 }
