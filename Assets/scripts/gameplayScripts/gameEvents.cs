@@ -4,16 +4,25 @@ public class gameEvents : MonoBehaviour
 {
     public collectibleCount count;
     public FPSController player;
-    private bool pop;
+    private int pop1;
     private void Awake()
     {
-        pop = false;
+        pop1 = playerData.instance.pop;
     }
     void Update()
     {
-        if(count.getCount() == 7 && !pop)
+        switch (pop1)
         {
-            crash();
+            case 1:
+                {
+                    if (count.getCount() == 7)
+                    {
+                        crash();
+                        
+                        playerData.instance.pop = 2;
+                    }
+                    break;
+                }
         }
     }
     void crash()
@@ -23,6 +32,6 @@ public class gameEvents : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
-        pop = true;
+        
     }
 }
