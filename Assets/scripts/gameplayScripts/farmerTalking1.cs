@@ -9,8 +9,8 @@ public class farmerTalkin1 : MonoBehaviour
     public float interactionDistance = 5.0f;
 
     public GameObject intText;
-
-
+    public collectibleCount count;
+    public TMPro.TMP_Text text;
     public bool on;
 
     void Start()
@@ -31,11 +31,20 @@ public class farmerTalkin1 : MonoBehaviour
            
                 
                 intText.SetActive(true);
-                if((playerData.instance.pop == 1 || playerData.instance.pop == 2) && Input.GetKeyDown(KeyCode.E))
+                if((playerData.instance.pop == 1 || playerData.instance.pop == 2) && Input.GetKeyDown(KeyCode.E) && count.getCount() <7)
                 {
                     FarmerTalking.instance.talking("FARMER MAULDER: FIND MY APPLES");
                     FarmerTalking.instance.ShowText();
+                    text.text = $"FIND HIS APPLES";
                 }
+                else if (count.getCount() >= 7 && Input.GetKeyDown(KeyCode.E))
+                {
+                    
+                    FarmerTalking.instance.talking("FARMER MAULDER: THANKS! NOW CHOP MY BIRCH TREES.");
+                    FarmerTalking.instance.ShowText();
+                    text.text = $"CHOP HIS BIRCH TREES";
+                }
+                
             }
             else
             {

@@ -8,12 +8,14 @@ public class gameEvents : MonoBehaviour
     public collectibleCount count;
     public FPSController player;
     private int pop1;
+    private bool apples;
     public TMPro.TMP_Text text;
     private void Awake()
     {
         RuntimeManager.PlayOneShot(ambience);
         pop1 = playerData.instance.pop;
         text.text = $"TALK TO FARMER MAULDER";
+        apples = true;
     }
     void Update()
     {
@@ -31,11 +33,12 @@ public class gameEvents : MonoBehaviour
                 }
             case 2:
                 {
-                    if (count.getCount() == 7)
+                    if (count.getCount() == 7 && apples)
                     {
+                        apples = false;
                         text.text = $"RETURN THE APPLES TO FARMER MAULDER";
                     }
-                    
+                     
                     break;
                 }
             default: {  break; }
