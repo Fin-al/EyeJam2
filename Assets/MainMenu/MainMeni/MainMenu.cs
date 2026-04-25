@@ -10,11 +10,17 @@ public class MainMenu : MonoBehaviour
     private UIDocument _document;
     private Button start,end ;
     private VisualElement _root;
-    public EventReference click,hover;
+    public EventReference click,hover,menu;
     private readonly Color normalColor = new Color(0.376f, 0.18f, 0.039f);
+    private FMOD.Studio.EventInstance menuMusicInstance;
 
     private void Awake()
     {
+        if (!menu.IsNull)
+        {
+            menuMusicInstance = RuntimeManager.CreateInstance(menu);
+            menuMusicInstance.start();
+        }
         AudioSource audio = GetComponent<AudioSource>();
         if (audio != null)
         {
@@ -51,7 +57,10 @@ public class MainMenu : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(click);
         Debug.Log("Pressed");
+        OnDestroy();
         SceneManager.LoadSceneAsync(1);
+        
+       
     }
     private void load()
     {
@@ -75,5 +84,10 @@ public class MainMenu : MonoBehaviour
         VisualElement button = evt.target as VisualElement;
         button.style.backgroundColor = normalColor;
         button.style.scale = new StyleScale(new Vector2(1.0f, 1.0f));
+    }
+    private void OnDestroy()
+    {
+        menuMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        menuMusicInstance.release();
     }
 }
