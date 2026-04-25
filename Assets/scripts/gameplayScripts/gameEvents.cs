@@ -1,5 +1,6 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 
 public class gameEvents : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class gameEvents : MonoBehaviour
     public TMPro.TMP_Text text;
     private void Awake()
     {
+        RuntimeManager.PlayOneShot(ambience);
         pop1 = playerData.instance.pop;
         text.text = $"TALK TO FARMER MAULDER";
     }
