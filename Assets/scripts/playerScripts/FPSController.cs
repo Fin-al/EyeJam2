@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 [RequireComponent(typeof(CharacterController))]
 public class FPSController : MonoBehaviour
@@ -9,68 +8,70 @@ public class FPSController : MonoBehaviour
     public PlayerObject player;
     public Camera playerCamera;
 
-    //public StepsALL Steps;
+    [Header("FMOD Settings")]
+    public EventReference footstepEvent;
+    public EventReference jumpEvent;
+    public EventReference landEvent;
+    public string surfaceParameter = "Terrain";
 
-    bool isRunning = false;
+    public float baseStepSpeed = 0.5f;
+    public float runStepSpeed = 0.3f;
+    private float footstepTimer;
 
-
-    Vector3 moveDirection = Vector3.zero;
-    float rotationX = 0;
-
+    private bool wasGrounded;
+    private Terrain terrain;
+    private TerrainData terrainData;
+    private CharacterController characterController;
+    private Vector3 moveDirection = Vector3.zero;
+    private float rotationX = 0;
     public bool canMove = true;
 
-
-
-    private void Awake()
-    {
-        player.runSpeed = 6f;
-        player.walkSpeed = 3f;
-    }
-    CharacterController characterController;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        player.TimeSinceStep += Time.deltaTime;
 
+        terrain = Terrain.activeTerrain;
+        if (terrain != null) terrainData = terrain.terrainData;
+
+        wasGrounded = characterController.isGrounded;
     }
 
     void Update()
     {
-        AudioSource walkSound = GetComponent<AudioSource>();
-        //walkSound.clip = walk;
-        #region Handles Movment
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        // Press Left Shift to run
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
+
         float curSpeedX = canMove ? (isRunning ? player.runSpeed : player.walkSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? player.runSpeed : player.walkSpeed) * Input.GetAxis("Horizontal") : 0;
+
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        #endregion
-
-        #region Handles Jumping
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        if (Input.GetButtonDown("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = player.jumpPower;
+            PlayActionSound(jumpEvent);
         }
         else
         {
             moveDirection.y = movementDirectionY;
         }
 
+        if (!wasGrounded && characterController.isGrounded)
+        {
+            PlayActionSound(landEvent);
+        }
+        wasGrounded = characterController.isGrounded;
+
         if (!characterController.isGrounded)
         {
             moveDirection.y -= player.gravity * Time.deltaTime;
         }
 
-        #endregion
-
-        #region Handles Rotation
         characterController.Move(moveDirection * Time.deltaTime);
 
         if (canMove)
@@ -81,47 +82,38 @@ public class FPSController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * player.lookSpeed, 0);
         }
 
-        #endregion
-
-
-        /* if (characterController.isGrounded && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)))
-         {
-             if (player.StepCoolDowntime - player.TimeSinceStep < 0.2d)
-             {
-                 Steps.PlayFootSteps();
-                 player.TimeSinceStep = 0;
-             }
-             else if (isRunning && player.StepCoolDowntime - player.TimeSinceStep < 0.5d)
-             {
-                 Steps.PlayFootSteps();
-                 player.TimeSinceStep = 0;
-             }
-
-         }*/
-       // player.TimeSinceStep += Time.deltaTime;
-        //tilt camera
-
-        /*#region Crouch
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (characterController.isGrounded && (Mathf.Abs(curSpeedX) > 0.1f || Mathf.Abs(curSpeedY) > 0.1f))
         {
-
-            characterController.height = 0.5f;
-            characterController.center = new Vector3(0, 0.2f, 0);
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0)
+            {
+                PlayFootstep();
+                footstepTimer = isRunning ? runStepSpeed : baseStepSpeed;
+            }
         }
-        else
-        {
-
-            characterController.height = 2f;
-            characterController.center = Vector3.zero;
-        }
-        
-        #endregion*/
-
     }
-    public Boolean isrunning()
+
+    private void PlayFootstep()
     {
-        return isRunning;
+        float surfaceIndex = 3;
+
+        RuntimeManager.StudioSystem.setParameterByName(surfaceParameter, surfaceIndex);
+        FMOD.Studio.EventInstance footstep = RuntimeManager.CreateInstance(footstepEvent);
+        footstep.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        footstep.start();
+        footstep.release();
     }
 
-}
+    private void PlayActionSound(EventReference actionEvent)
+    {
+        if (actionEvent.IsNull) return;
 
+        float surfaceIndex = 3;
+        RuntimeManager.StudioSystem.setParameterByName(surfaceParameter, surfaceIndex);
+
+        FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(actionEvent);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        instance.start();
+        instance.release();
+    }
+}

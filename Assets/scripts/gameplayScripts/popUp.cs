@@ -6,7 +6,7 @@ using static Unity.Collections.AllocatorManager;
 
 public class PopUp : MonoBehaviour
 {
-    private UIDocument _document;
+    public UIDocument _document,doc2;
     private Button _popUpButton;
     private VisualElement _root;
     public EventReference pop;
@@ -16,7 +16,10 @@ public class PopUp : MonoBehaviour
     {
         if (instance == null) instance = this;
 
-        _document = GetComponent<UIDocument>();
+        if (playerData.instance.pop==2)
+        {
+            _document = doc2;
+        }
         _root = _document.rootVisualElement;
 
         _popUpButton = _root.Q<Button>("ButtonExit");

@@ -47,6 +47,10 @@ public class chopping : MonoBehaviour
 
         }
     }
+    public void add()
+    {
+        count++;
+    }
     private void OnDestroy()
     {
       //  sound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

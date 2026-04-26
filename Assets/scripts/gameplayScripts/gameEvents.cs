@@ -12,9 +12,13 @@ public class gameEvents : MonoBehaviour
     private bool apples;
     public TMPro.TMP_Text text;
     private FMOD.Studio.EventInstance menuMusicInstance,amb,nob;
+    public chopping chopCheck;
+    public GameObject farmer, act2;
+    Terrain terrain;
     private void Awake()
-    { 
-        
+    {
+         terrain = Terrain.activeTerrain;
+        terrain.treeDistance = 500;
         pop1 = playerData.instance.pop;
         text.text = $"TALK TO FARMER MAULDER";
         apples = true;
@@ -52,6 +56,11 @@ public class gameEvents : MonoBehaviour
                     {
                         apples = false;
                         text.text = $"RETURN THE APPLES TO FARMER MAULDER";
+                    }else if(chopCheck.count == 15)
+                    {
+                        chopCheck.add();
+                        text.text = $"RETURN BACK";
+                        VanishForest();
                     }
                      
                     break;
@@ -75,5 +84,14 @@ public class gameEvents : MonoBehaviour
         amb.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         nob.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         nob.release();
+    }
+    public void VanishForest()
+    {
+        
+        if (terrain != null)
+        {
+             
+            terrain.treeDistance = 0;
+        }
     }
 }

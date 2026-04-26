@@ -1876,6 +1876,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::collectibleCount
   text: {fileID: 0}
+  apple:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &32378930
 Transform:
   m_ObjectHideFlags: 0
@@ -6294,6 +6301,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::collectibleCount
   text: {fileID: 517961920}
+  apple:
+    Guid:
+      Data1: 2113192030
+      Data2: 1225079140
+      Data3: -788449898
+      Data4: 1897996934
+    Path: event:/GameSFX/ItemPickup
 --- !u!1 &522320156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6348,7 +6362,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 120
+  far clip plane: 300
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -6444,13 +6458,6 @@ MonoBehaviour:
   count: {fileID: 517961922}
   text: {fileID: 517961920}
   on: 0
-  axe1:
-    Guid:
-      Data1: -1321291780
-      Data2: 1095780399
-      Data3: 476115597
-      Data4: 2131652227
-    Path: event:/GameSFX/ItemShimmer
 --- !u!114 &522320162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19326,6 +19333,7 @@ MonoBehaviour:
   count: {fileID: 517961922}
   player: {fileID: 1734374788}
   text: {fileID: 517961920}
+  chopCheck: {fileID: 522320164}
 --- !u!4 &1641987551
 Transform:
   m_ObjectHideFlags: 0
@@ -19850,7 +19858,7 @@ CapsuleCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 3
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -19873,6 +19881,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FPSController
   player: {fileID: 11400000, guid: aee7235e8d534b74381bad54596ee610, type: 2}
   playerCamera: {fileID: 522320157}
+  footstepEvent:
+    Guid:
+      Data1: -1780294453
+      Data2: 1156198498
+      Data3: 2123223983
+      Data4: 156183233
+    Path: event:/PlayerSFX/Walk
+  jumpEvent:
+    Guid:
+      Data1: 998457413
+      Data2: 1336433453
+      Data3: 1149422229
+      Data4: -436238840
+    Path: event:/PlayerSFX/Jump
+  landEvent:
+    Guid:
+      Data1: 1961586410
+      Data2: 1337855127
+      Data3: 746971063
+      Data4: -1573425728
+    Path: event:/PlayerSFX/Land
+  surfaceParameter: Terrain
+  baseStepSpeed: 0.5
+  runStepSpeed: 0.3
   canMove: 1
 --- !u!143 &1734374789
 CharacterController:
@@ -25639,9 +25671,29 @@ PrefabInstance:
       propertyPath: m_TerrainData
       value: 
       objectReference: {fileID: 15600000, guid: 4062b50b13940af4faecd31d8d253235, type: 2}
+    - target: {fileID: 5347205407685244200, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129042574767073094, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
+      propertyPath: m_GroupingID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129042574767073094, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
+      propertyPath: m_HeightmapPixelError
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129042574767073094, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
+      propertyPath: m_HeightmapMinimumLODSimplification
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8620363722569868711, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
       propertyPath: m_Name
       value: TerrainForest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620363722569868711, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8620363722569868711, guid: faba93a51cd480a428ac6c741e5e5738, type: 3}
       propertyPath: m_IsActive
