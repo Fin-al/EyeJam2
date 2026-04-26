@@ -27,4 +27,9 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    background-image: url("project://database/Assets/Materials/TEXTBOX.jpg?fileID=2800000&guid=05585e963009e9543830cec082d73cc5&type=3#TEXTBOX");
+    background-size: 452% 100%;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-font-definition: url("project://database/Assets/Materials/font/Cowboy%20Movie.ttf?fileID=12800000&guid=d249f5552324e1e40b05de6b3ce49396&type=3#Cowboy Movie");
 }

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class FarmerTalking : MonoBehaviour
 {
     private UIDocument _document;
-    private Button next;
+     
     private VisualElement _root;
     public EventReference pop;
     public static FarmerTalking instance;
@@ -20,13 +20,10 @@ public class FarmerTalking : MonoBehaviour
         _root = _document.rootVisualElement;
         
 
-        next = _root.Q<Button>("ButtonNext");
+        
         farmertext = _root.Q<Label>("Label");
 
-        if (next != null)
-        {
-            next.clicked += OnButtonClicked;
-        }
+   
         HideText();
     }
 
@@ -51,11 +48,5 @@ public class FarmerTalking : MonoBehaviour
         farmertext.text = words;
     }
 
-    private void OnDestroy()
-    {
-        if (next != null)
-        {
-            next.clicked -= OnButtonClicked;
-        }
-    }
+    
 }

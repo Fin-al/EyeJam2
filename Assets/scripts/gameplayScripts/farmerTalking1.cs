@@ -1,18 +1,20 @@
 //using Palmmedia.ReportGenerator.Core;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class farmerTalkin1 : MonoBehaviour
 {
     // Start is called before the first frame update
     public float interactionDistance = 5.0f;
-
+    public axe axing;
     public GameObject intText;
     public collectibleCount count;
     public TMPro.TMP_Text text;
     public bool on;
-
+   
     void Start()
     {
         on = false;
@@ -31,18 +33,21 @@ public class farmerTalkin1 : MonoBehaviour
            
                 
                 intText.SetActive(true);
-                if((playerData.instance.pop == 1 || playerData.instance.pop == 2) && Input.GetKeyDown(KeyCode.E) && count.getCount() <7)
+                if((playerData.instance.pop == 1 || playerData.instance.pop == 2) && Input.GetKeyDown(KeyCode.E) && count.getCount() <6)
                 {
+                    Debug.Log(count.getCount());
                     FarmerTalking.instance.talking("FARMER MAULDER: FIND MY APPLES");
                     FarmerTalking.instance.ShowText();
                     text.text = $"FIND HIS APPLES";
                 }
                 else if (count.getCount() >= 7 && Input.GetKeyDown(KeyCode.E))
                 {
-                    
+                    Debug.Log("Task 2");
                     FarmerTalking.instance.talking("FARMER MAULDER: THANKS! NOW CHOP MY BIRCH TREES.");
                     FarmerTalking.instance.ShowText();
                     text.text = $"CHOP HIS BIRCH TREES";
+                    
+                    axing.axeTask();
                 }
                 
             }

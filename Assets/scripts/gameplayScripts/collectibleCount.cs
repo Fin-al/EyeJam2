@@ -1,9 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public class collectibleCount : MonoBehaviour
 {
     int count;
-    TMPro.TMP_Text text;
+    public TMP_Text text;
     private void Awake()
     {
         text = GetComponent<TMPro.TMP_Text>();

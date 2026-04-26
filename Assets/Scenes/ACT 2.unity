@@ -1374,6 +1374,8 @@ GameObject:
   - component: {fileID: 211417811}
   - component: {fileID: 211417813}
   - component: {fileID: 211417812}
+  - component: {fileID: 211417816}
+  - component: {fileID: 211417815}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1499,6 +1501,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1749826941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211417815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211417810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXShaderManager
+  _TextureWarpingFactor: 1
+  _TextureWarpingMode: 0
+  _VertexGridResolution: 100
+  _VertexWobbleMode: 0
+  _UseRetroVertexLighting: 1
+  _RetroLightingNormalFactor: 0
+  _RetroLightFalloffStart: 0
+  _FlatShadingMode: 0
+  _TriangleSortMode: 0
+  _DepthDebugView: 0
+--- !u!114 &211417816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211417810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXPostProcessEffect
+  _PixelationFactor: 1
+  _ColorEmulationMode: 3
+  _FullscreenColorDepth: {x: 256, y: 256, z: 256}
+  _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
+  _DitheringMatrixSize: 2
+  _DitheringScale: 1
+  _InterlacingSize: 1
+  _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
+  _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
+  _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
 --- !u!1 &211455395
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,6 +7078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750782463b64f3b47a88402978c36897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::collectibleCount
+  text: {fileID: 0}
 --- !u!4 &673047577
 Transform:
   m_ObjectHideFlags: 0
@@ -16727,6 +16775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750782463b64f3b47a88402978c36897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::collectibleCount
+  text: {fileID: 0}
 --- !u!114 &1434982231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16739,6 +16788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750782463b64f3b47a88402978c36897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::collectibleCount
+  text: {fileID: 0}
 --- !u!114 &1434982232
 MonoBehaviour:
   m_ObjectHideFlags: 0
