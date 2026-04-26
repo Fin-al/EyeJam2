@@ -36,6 +36,7 @@ public class gameEvents : MonoBehaviour
     }
     void Update()
     {
+        pop1 = playerData.instance.pop;
         switch (pop1)
         {
             case 1:
@@ -65,7 +66,14 @@ public class gameEvents : MonoBehaviour
                      
                     break;
                 }
-            default: {  break; }
+            case 3:
+                {
+                    crash();
+                    Debug.Log("task 4");
+                    playerData.instance.changePop(4);
+                    break;
+                }
+                default: {  break; }
         }
     }
     void crash()
@@ -87,11 +95,8 @@ public class gameEvents : MonoBehaviour
     }
     public void VanishForest()
     {
-        
-        if (terrain != null)
-        {
-             
-            terrain.treeDistance = 0;
-        }
+        act2.SetActive(true);
+        farmer.SetActive(false);
+        terrain.treeDistance = 0f;
     }
 }

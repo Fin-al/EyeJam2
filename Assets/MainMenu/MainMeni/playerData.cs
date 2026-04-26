@@ -15,7 +15,7 @@ public class playerData : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        pop = PlayerPrefs.GetInt("SavedPops", 0);
+        pop = PlayerPrefs.GetInt("SavedPops", 1);
         Debug.Log("Total Pops is : " + pop);
     }
     public void changePop(int amount)

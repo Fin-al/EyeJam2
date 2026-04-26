@@ -28,9 +28,15 @@ public class chopping : MonoBehaviour
             if (hit.collider.gameObject.tag == "birch"&& axing.isAxe)
             {
                 intText.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && playerData.instance.pop!=4)
                 {
                     RuntimeManager.PlayOneShot(axe,gameObject.transform.position);
+                    tre = hit.collider.GetComponent<tree>();
+                    tre.chop();
+                    count++;
+                }else if(Input.GetKeyDown(KeyCode.E) && playerData.instance.pop == 4)
+                {
+                    RuntimeManager.PlayOneShot(axe, gameObject.transform.position);
                     tre = hit.collider.GetComponent<tree>();
                     tre.chop();
                     count++;

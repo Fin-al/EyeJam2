@@ -5,7 +5,8 @@ using UnityEngine;
 public class tree : MonoBehaviour
 {
     int count;
-    public EventReference falling;
+    public EventReference falling, cras;
+    public GameObject crash;
 
     private void Awake()
     {
@@ -14,10 +15,20 @@ public class tree : MonoBehaviour
 
     private void Update()
     {
-        if (count == 5)
+        if (count == 5 && playerData.instance.pop !=4)
         {
             RuntimeManager.PlayOneShot(falling, transform.position);
             fall();
+        }
+        else if (count == 5)
+        {
+             
+            RuntimeManager.PlayOneShot(cras);
+            crash.SetActive(true);
+            playerData.instance.changePop(1);
+            count++;
+             
+            Invoke("QuitGame", 1f);
         }
     }
 
@@ -39,5 +50,10 @@ public class tree : MonoBehaviour
         {
             GetComponent<Collider>().enabled = false;
         }
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 }

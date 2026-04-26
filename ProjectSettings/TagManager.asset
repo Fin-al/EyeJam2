@@ -7,6 +7,7 @@ TagManager:
   - farmer
   - axe
   - birch
+  - eye
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
     private UIDocument _document;
-    private Button start,end ;
+    private Button start,end, loads;
     private VisualElement _root;
     public EventReference click,hover,menu;
     private readonly Color normalColor = new Color(0.376f, 0.18f, 0.039f);
@@ -40,32 +40,41 @@ public class MainMenu : MonoBehaviour
 
         start = _root.Q<Button>("NewGame");
         end = _root.Q<Button>("Exit");
+        loads = _root.Q<Button>("LoadGame");
 
         if (start != null && end!=null)
         {
             start.clicked += OnButtonClicked;
             end.clicked += exit;
+            loads.clicked += load;
 
             start.RegisterCallback<PointerEnterEvent>(OnButtonHover);
             end.RegisterCallback<PointerEnterEvent>(OnButtonHover);
             start.RegisterCallback<PointerLeaveEvent>(OnButtonLeave);
             end.RegisterCallback<PointerLeaveEvent>(OnButtonLeave);
+            loads.RegisterCallback<PointerEnterEvent>(OnButtonHover);
+            loads.RegisterCallback<PointerLeaveEvent>(OnButtonLeave);
         }
         Debug.Log("HELLO");
     }
     private void OnButtonClicked()
     {
-        RuntimeManager.PlayOneShot(click);
-        Debug.Log("Pressed");
-        OnDestroy();
-        SceneManager.LoadSceneAsync(1);
-        
-       
+        if (playerData.instance.pop != 4)
+        {
+            RuntimeManager.PlayOneShot(click);
+            Debug.Log("Pressed");
+            OnDestroy();
+            SceneManager.LoadSceneAsync(1);
+        }
     }
     private void load()
     {
-        SceneManager.LoadSceneAsync(1);
-
+        if (playerData.instance.pop == 4) {
+            RuntimeManager.PlayOneShot(click);
+            SceneManager.LoadSceneAsync(2);
+            OnDestroy();
+        }
+        
     }
     private void exit()
     {
