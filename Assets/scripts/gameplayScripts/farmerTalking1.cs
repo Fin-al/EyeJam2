@@ -43,9 +43,9 @@ public class farmerTalkin1 : MonoBehaviour
                 else if (count.getCount() >= 7 && Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Task 2");
-                    FarmerTalking.instance.talking("FARMER MAULDER: THANKS! NOW CHOP MY BIRCH TREES.");
+                    FarmerTalking.instance.talking("FARMER MAULDER: GRAB MY AXE AND CHOP MY TREES");
                     FarmerTalking.instance.ShowText();
-                    text.text = $"CHOP HIS BIRCH TREES";
+                    text.text = $"CHOP HIS BIRCH TREES WITH HIS AXE";
                     
                     axing.axeTask();
                 } else if (playerData.instance.pop == 4 && Input.GetKeyDown(KeyCode.E))

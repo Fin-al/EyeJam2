@@ -5,13 +5,13 @@ using UnityEngine.AdaptivePerformance;
 
 public class gameEvents : MonoBehaviour
 {
-    public EventReference music,ambience,nobirds;
+    public EventReference music,ambience,nobirds,creepymusic;
     public collectibleCount count;
     public FPSController player;
     private int pop1;
     private bool apples;
     public TMPro.TMP_Text text;
-    private FMOD.Studio.EventInstance menuMusicInstance,amb,nob;
+    private FMOD.Studio.EventInstance menuMusicInstance,amb,nob,creep;
     public chopping chopCheck;
     public GameObject farmer, act2;
     Terrain terrain;
@@ -30,6 +30,8 @@ public class gameEvents : MonoBehaviour
             amb.start();
         }
         else if (pop1 == 2) {
+            creep = RuntimeManager.CreateInstance(creepymusic);
+            creep.start();
             nob = RuntimeManager.CreateInstance(nobirds);
             nob.start();
         }
@@ -62,6 +64,7 @@ public class gameEvents : MonoBehaviour
                         chopCheck.add();
                         text.text = $"RETURN BACK";
                         VanishForest();
+                        OnDestroy();
                     }
                      
                     break;
@@ -92,6 +95,8 @@ public class gameEvents : MonoBehaviour
         amb.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         nob.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         nob.release();
+        creep.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        creep.release();
     }
     public void VanishForest()
     {

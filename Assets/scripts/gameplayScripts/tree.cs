@@ -6,11 +6,13 @@ public class tree : MonoBehaviour
 {
     int count;
     public EventReference falling, cras;
+    private FMOD.Studio.EventInstance c;
     public GameObject crash;
 
     private void Awake()
     {
         count = 0;
+        
     }
 
     private void Update()
@@ -22,12 +24,12 @@ public class tree : MonoBehaviour
         }
         else if (count == 5)
         {
-             
-            RuntimeManager.PlayOneShot(cras);
+
+          
             crash.SetActive(true);
             playerData.instance.changePop(1);
             count++;
-             
+            RuntimeManager.PlayOneShot(cras, gameObject.transform.position);
             Invoke("QuitGame", 1f);
         }
     }
@@ -54,6 +56,12 @@ public class tree : MonoBehaviour
 
     private void QuitGame()
     {
+        OnDestroy();
         Application.Quit();
+    }
+    private void OnDestroy()
+    {
+        c.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        c.release();
     }
 }

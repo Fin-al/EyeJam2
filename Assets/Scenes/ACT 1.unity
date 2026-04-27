@@ -20424,6 +20424,13 @@ MonoBehaviour:
       Data3: -820394821
       Data4: 611340221
     Path: event:/GameSFX/OutsideAmbience
+  creepymusic:
+    Guid:
+      Data1: 1542084700
+      Data2: 1249551867
+      Data3: 2119179139
+      Data4: -523261395
+    Path: event:/Music/SpookyMusic
   count: {fileID: 517961922}
   player: {fileID: 1734374788}
   text: {fileID: 517961920}
