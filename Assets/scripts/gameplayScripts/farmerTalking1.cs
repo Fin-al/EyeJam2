@@ -14,6 +14,7 @@ public class farmerTalkin1 : MonoBehaviour
     public collectibleCount count;
     public TMPro.TMP_Text text;
     public bool on;
+    public OutofBounds outofBounds;
    
     void Start()
     {
@@ -61,13 +62,17 @@ public class farmerTalkin1 : MonoBehaviour
             else
             {
                 intText.SetActive(false);
-                FarmerTalking.instance.HideText();
+              
+                
             }
         }
         else
         {
             intText.SetActive(false);
-            
+            if (!outofBounds.touching)
+            {
+                FarmerTalking.instance.HideText();
+            }
         }
     }
     /* void onOrOff()
