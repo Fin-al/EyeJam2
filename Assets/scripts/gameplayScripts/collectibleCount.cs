@@ -18,7 +18,7 @@ public class collectibleCount : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(apple);
         count++;
-        text.text = $"{count}";
+        text.text = $"{count}/7";
     }
     public int getCount()
     {

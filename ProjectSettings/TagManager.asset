@@ -8,6 +8,7 @@ TagManager:
   - axe
   - birch
   - eye
+  - Out
   layers:
   - Default
   - TransparentFX

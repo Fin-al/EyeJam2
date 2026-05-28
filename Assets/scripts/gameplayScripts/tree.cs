@@ -25,12 +25,13 @@ public class tree : MonoBehaviour
         else if (count == 5)
         {
 
-          
-            crash.SetActive(true);
+            RuntimeManager.PlayOneShot(cras, gameObject.transform.position);
+            fall();
+            /*crash.SetActive(true);
             playerData.instance.changePop(1);
             count++;
             RuntimeManager.PlayOneShot(cras, gameObject.transform.position);
-            Invoke("QuitGame", 1f);
+            Invoke("QuitGame", 1f);*/
         }
     }
 

@@ -53,7 +53,7 @@ public class farmerTalkin1 : MonoBehaviour
                     Debug.Log("Task 4");
                     FarmerTalking.instance.talking("M4U1DER: FIND TR33");
                     FarmerTalking.instance.ShowText();
-                    text.text = $"FIND HSI TREE";
+                    text.text = $"FIND HIS TREE";
                     axing.axeTask();
                 }
                 
@@ -61,12 +61,13 @@ public class farmerTalkin1 : MonoBehaviour
             else
             {
                 intText.SetActive(false);
+                FarmerTalking.instance.HideText();
             }
         }
         else
         {
             intText.SetActive(false);
-            FarmerTalking.instance.HideText();
+            
         }
     }
     /* void onOrOff()

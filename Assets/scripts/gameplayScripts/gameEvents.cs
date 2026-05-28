@@ -5,13 +5,13 @@ using UnityEngine.AdaptivePerformance;
 
 public class gameEvents : MonoBehaviour
 {
-    public EventReference music,ambience,nobirds,creepymusic;
+    public EventReference music,ambience,nobirds,creepymusic, ambienceScary;
     public collectibleCount count;
     public FPSController player;
     private int pop1;
     private bool apples;
     public TMPro.TMP_Text text;
-    private FMOD.Studio.EventInstance menuMusicInstance,amb,nob,creep;
+    private FMOD.Studio.EventInstance menuMusicInstance,amb,nob,creep, scary;
     public chopping chopCheck;
     public GameObject farmer, act2;
     Terrain terrain;
@@ -29,11 +29,16 @@ public class gameEvents : MonoBehaviour
             amb = RuntimeManager.CreateInstance(ambience);
             amb.start();
         }
-        else if (pop1 == 2) {
+        else if (pop1 == 2)
+        {
             creep = RuntimeManager.CreateInstance(creepymusic);
             creep.start();
             nob = RuntimeManager.CreateInstance(nobirds);
             nob.start();
+        }
+        else if (pop1 == 4) {
+            scary = RuntimeManager.CreateInstance(ambienceScary);
+            scary.start();
         }
     }
     void Update()
