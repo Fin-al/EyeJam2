@@ -37,8 +37,16 @@ public class farmerTalkin1 : MonoBehaviour
                 if((playerData.instance.pop == 1 || playerData.instance.pop == 2) && Input.GetKeyDown(KeyCode.E) && count.getCount() <6)
                 {
                     Debug.Log(count.getCount());
-                    FarmerTalking.instance.talking("FARMER MAULDER: FIND MY APPLES");
-                    FarmerTalking.instance.ShowText();
+                    if (playerData.instance.pop == 2)
+                    {
+                        FarmerTalking.instance.talking("FARMER MAULDER: WELCOME BACK, FIND MY APPLES");
+                        FarmerTalking.instance.ShowText();
+                    }
+                    else
+                    {
+                        FarmerTalking.instance.talking("FARMER MAULDER: FIND MY APPLES");
+                        FarmerTalking.instance.ShowText();
+                    }
                     text.text = $"FIND HIS APPLES";
                 }
                 else if (count.getCount() >= 7 && Input.GetKeyDown(KeyCode.E))

@@ -3,7 +3,13 @@ using UnityEngine;
 public class OutofBounds : MonoBehaviour
 {
     public bool touching = false;
-    private int count = 0;
+    public int count = 0;
+    public GameObject farmer;
+    private Vector3 pos;
+    private void Awake()
+    {
+        pos = farmer.transform.position;
+    }
     private void OnTriggerEnter(Collider other)
     {
         
@@ -12,7 +18,7 @@ public class OutofBounds : MonoBehaviour
             count++;
             switch (count) {  
                      
-                case 1 or 2:
+                case 1:
                     {
                         FarmerTalking.instance.talking("PLAYER: I SHOULD GO BACK.");
                         FarmerTalking.instance.ShowText();
@@ -21,7 +27,7 @@ public class OutofBounds : MonoBehaviour
                         break;
                     }
                
-                case 3 or 4 or 5 or 6 or 7:
+                case 2:
                     {
                         FarmerTalking.instance.talking("PLAYER: I REALLY NEED TO GO BACK.");
                         FarmerTalking.instance.ShowText();
@@ -29,17 +35,33 @@ public class OutofBounds : MonoBehaviour
                         touching = true;
                         break;
                     }
-                case 9:
+                case 3:
                     {
-                        FarmerTalking.instance.talking("MAULDER: GO BACK!");
+                        FarmerTalking.instance.talking("PLAYER: HE WILL GET MAD.");
                         FarmerTalking.instance.ShowText();
-                         
+                        Debug.Log("Hit wall");
+                        touching = true;
+                        break;
+                    }
+                case 4:
+                    {
+                        FarmerTalking.instance.talking("MAULDER: GO BACK");
+                        FarmerTalking.instance.ShowText();
+                        farmer.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z -10f);
+                        farmer.transform.rotation = Quaternion.Euler(90f, 0f, transform.rotation.y);
+                        touching = true;
+                        break;
+                    }
+                case 5:
+                    {
+                        FarmerTalking.instance.talking("PLAYER: YOU HEARD HIM!");
+                        FarmerTalking.instance.ShowText();
                         touching = true;
                         break;
                     }
                     default:
                     {
-                        FarmerTalking.instance.talking("PLAYER: YOU HEARD HIM!");
+                        FarmerTalking.instance.talking("PLAYER: TIME TO GO BACK.");
                         FarmerTalking.instance.ShowText();
                         touching = true;
                         break;
@@ -54,6 +76,8 @@ public class OutofBounds : MonoBehaviour
         {
             FarmerTalking.instance.HideText();
             touching = false;
+            farmer.transform.position = pos;
+            farmer.transform.rotation = Quaternion.Euler(90f, 0f, 90f);
         }
     }
 }

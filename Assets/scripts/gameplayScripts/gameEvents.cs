@@ -14,6 +14,7 @@ public class gameEvents : MonoBehaviour
     private FMOD.Studio.EventInstance menuMusicInstance,amb,nob,creep, scary;
     public chopping chopCheck;
     public GameObject farmer, act2;
+    public OutofBounds OutofBounds;
     Terrain terrain;
     private void Awake()
     {
@@ -22,21 +23,21 @@ public class gameEvents : MonoBehaviour
         pop1 = playerData.instance.pop;
         text.text = $"TALK TO FARMER MAULDER";
         apples = true;
-        if (pop1 == 1)
+        if (pop1 == 1 && OutofBounds.count !=9)
         {
             menuMusicInstance = RuntimeManager.CreateInstance(music);
             menuMusicInstance.start();
             amb = RuntimeManager.CreateInstance(ambience);
             amb.start();
         }
-        else if (pop1 == 2)
+        else if (pop1 == 2 && OutofBounds.count != 9)
         {
             creep = RuntimeManager.CreateInstance(creepymusic);
             creep.start();
             nob = RuntimeManager.CreateInstance(nobirds);
             nob.start();
         }
-        else if (pop1 == 4) {
+        else if (pop1 == 4 && OutofBounds.count != 9) {
             scary = RuntimeManager.CreateInstance(ambienceScary);
             scary.start();
         }
@@ -71,7 +72,11 @@ public class gameEvents : MonoBehaviour
                         VanishForest();
                         OnDestroy();
                     }
-                     
+                    if (OutofBounds.count == 4)
+                    {
+                        OnDestroy();
+                    }
+
                     break;
                 }
             case 3:
