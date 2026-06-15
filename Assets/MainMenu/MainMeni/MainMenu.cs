@@ -13,9 +13,11 @@ public class MainMenu : MonoBehaviour
     public EventReference click,hover,menu;
     private readonly Color normalColor = new Color(0.376f, 0.18f, 0.039f);
     private FMOD.Studio.EventInstance menuMusicInstance;
-
+    public GameObject farmer;
+  
     private void Awake()
     {
+        
         if (!menu.IsNull)
         {
             menuMusicInstance = RuntimeManager.CreateInstance(menu);
@@ -31,7 +33,7 @@ public class MainMenu : MonoBehaviour
         {
             Debug.LogError("No AudioSource found on this object!");
         }
-
+        
         Time.timeScale = 1f;
         if (instance == null) instance = this;
 
@@ -56,6 +58,19 @@ public class MainMenu : MonoBehaviour
             loads.RegisterCallback<PointerLeaveEvent>(OnButtonLeave);
         }
         Debug.Log("HELLO");
+       
+
+    }
+    private void Start()
+    {
+        if (playerData.instance.pop == 4)
+        {
+            farmer.SetActive(true);
+        }
+        else
+        {
+            farmer.SetActive(false);
+        }
     }
     private void OnButtonClicked()
     {

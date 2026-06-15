@@ -47,8 +47,7 @@ public class OutofBounds : MonoBehaviour
                     {
                         FarmerTalking.instance.talking("MAULDER: GO BACK");
                         FarmerTalking.instance.ShowText();
-                        farmer.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z -10f);
-                        farmer.transform.rotation = Quaternion.Euler(90f, 0f, transform.rotation.y);
+                        farmer.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10f);
                         touching = true;
                         break;
                     }

@@ -492,6 +492,7 @@ MonoBehaviour:
       Data4: -1997178191
     Path: event:/MenuSFX/CrashPopup
   crash: {fileID: 0}
+  lol: 0
 --- !u!1 &22398637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,13 +2673,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168091084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.364, y: 0.267, z: 0.795}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+  m_Father: {fileID: 435752411}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &168091089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4710,6 +4711,52 @@ Transform:
   - {fileID: 657433256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &435752410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435752411}
+  - component: {fileID: 435752412}
+  m_Layer: 0
+  m_Name: farmerPArent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435752411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435752410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.364, y: 0.267, z: 0.795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 168091088}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &435752412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435752410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e788a77934a432a4aa20a705a77877f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::farmerLooking
+  target: {fileID: 1734374790}
 --- !u!1 &438005088
 GameObject:
   m_ObjectHideFlags: 0
@@ -17497,6 +17544,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   crash: {fileID: 0}
+  lol: 0
 --- !u!1 &1442273554
 GameObject:
   m_ObjectHideFlags: 0
@@ -20300,13 +20348,13 @@ MonoBehaviour:
       Data3: 2119179139
       Data4: -523261395
     Path: event:/Music/SpookyMusic
-  ambienceScary:
+  outSide:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 330743596
+      Data2: 1296316627
+      Data3: -820394821
+      Data4: 611340221
+    Path: event:/GameSFX/OutsideAmbience
   count: {fileID: 517961922}
   player: {fileID: 1734374788}
   text: {fileID: 517961920}
@@ -23284,6 +23332,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   crash: {fileID: 0}
+  lol: 0
 --- !u!1 &1915043989
 GameObject:
   m_ObjectHideFlags: 0
@@ -27842,7 +27891,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 32378930}
-  - {fileID: 168091088}
+  - {fileID: 435752411}
   - {fileID: 1641987551}
   - {fileID: 1758441603}
   - {fileID: 2016825221}

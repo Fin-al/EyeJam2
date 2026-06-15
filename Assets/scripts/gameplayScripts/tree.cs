@@ -1,23 +1,26 @@
 using FMODUnity;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class tree : MonoBehaviour
 {
     int count;
     public EventReference falling, cras;
     private FMOD.Studio.EventInstance c;
-    public GameObject crash;
+    public GameObject crash,farmer,free;
+    public bool finalCrash;
+
 
     private void Awake()
     {
         count = 0;
-        
+        finalCrash = false;
     }
 
     private void Update()
     {
-        if (count == 5 && playerData.instance.pop !=4)
+        if (count == 5 && playerData.instance.pop != 4)
         {
             RuntimeManager.PlayOneShot(falling, transform.position);
             fall();
@@ -25,13 +28,15 @@ public class tree : MonoBehaviour
         else if (count == 5)
         {
 
-            RuntimeManager.PlayOneShot(cras, gameObject.transform.position);
+           
             fall();
-            /*crash.SetActive(true);
-            playerData.instance.changePop(1);
-            count++;
-            RuntimeManager.PlayOneShot(cras, gameObject.transform.position);
-            Invoke("QuitGame", 1f);*/
+            finalCrash = true;
+            farmer.transform.position = free.transform.position;
+            FarmerTalking.instance.talking("M4U1DER: THANK YOU FOR SETTING ME FREE");
+            FarmerTalking.instance.ShowText();
+
+
+            Invoke("crashing", 5f);
         }
     }
 
@@ -54,11 +59,20 @@ public class tree : MonoBehaviour
             GetComponent<Collider>().enabled = false;
         }
     }
-
+    private void crashing()
+    {
+        FarmerTalking.instance.talking("M4U1DER: NOW ITS YOUR TURN TO BE FREE");
+        
+        playerData.instance.changePop(5);
+        count++;
+       
+        Invoke("QuitGame", 5f);
+    }
     private void QuitGame()
     {
+        finalCrash = false;
         OnDestroy();
-        Application.Quit();
+        SceneManager.LoadSceneAsync(3);
     }
     private void OnDestroy()
     {

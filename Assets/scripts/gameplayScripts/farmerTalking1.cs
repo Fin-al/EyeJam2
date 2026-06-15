@@ -15,6 +15,7 @@ public class farmerTalkin1 : MonoBehaviour
     public TMPro.TMP_Text text;
     public bool on;
     public OutofBounds outofBounds;
+    public tree t;
    
     void Start()
     {
@@ -65,6 +66,12 @@ public class farmerTalkin1 : MonoBehaviour
                     text.text = $"FIND HIS TREE";
                     axing.axeTask();
                 }
+                else if(playerData.instance.pop == 4 && t.finalCrash)
+                {
+                    Debug.Log("He's Free");
+                    
+                    text.text = $"HE'S FREE";
+                }
                 
             }
             else
@@ -77,7 +84,7 @@ public class farmerTalkin1 : MonoBehaviour
         else
         {
             intText.SetActive(false);
-            if (!outofBounds.touching)
+            if (!outofBounds.touching && !t.finalCrash)
             {
                 FarmerTalking.instance.HideText();
             }
