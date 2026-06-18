@@ -15591,7 +15591,7 @@ MonoBehaviour:
     Path: event:/GameSFX/ItemShimmer
   Event: 
   EventPlayTrigger: 1
-  EventStopTrigger: 4
+  EventStopTrigger: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -22342,6 +22342,13 @@ MonoBehaviour:
       Data3: -820394821
       Data4: 611340221
     Path: event:/GameSFX/OutsideAmbience
+  superScary:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   count: {fileID: 1350293368}
   player: {fileID: 1041220513}
   text: {fileID: 1350293367}

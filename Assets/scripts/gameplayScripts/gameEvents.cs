@@ -45,7 +45,9 @@ public class gameEvents : MonoBehaviour
         else if (pop1 == 5)
         {
             scary = RuntimeManager.CreateInstance(superScary);
+            scary.setVolume(0.1f);
             scary.start();
+            text.text = $"FIND HIM";
         }
     }
     void Update()

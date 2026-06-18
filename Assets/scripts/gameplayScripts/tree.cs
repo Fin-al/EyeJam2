@@ -34,7 +34,7 @@ public class tree : MonoBehaviour
             farmer.transform.position = free.transform.position;
             FarmerTalking.instance.talking("M4U1DER: THANK YOU FOR SETTING ME FREE");
             FarmerTalking.instance.ShowText();
-
+            
 
             Invoke("crashing", 5f);
         }
@@ -62,7 +62,7 @@ public class tree : MonoBehaviour
     private void crashing()
     {
         FarmerTalking.instance.talking("M4U1DER: NOW ITS YOUR TURN TO BE FREE");
-        
+        OnDestroy();
         playerData.instance.changePop(5);
         count++;
        
@@ -71,7 +71,7 @@ public class tree : MonoBehaviour
     private void QuitGame()
     {
         finalCrash = false;
-        OnDestroy();
+     
         SceneManager.LoadSceneAsync(3);
     }
     private void OnDestroy()

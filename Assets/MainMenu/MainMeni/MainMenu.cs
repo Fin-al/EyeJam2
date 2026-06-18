@@ -93,7 +93,8 @@ public class MainMenu : MonoBehaviour
     }
     private void exit()
     {
-        playerData.instance.changePop(1);
+        playerData.instance.changePop(4);
+        
         Application.Quit();
     }
     private void OnButtonHover(PointerEnterEvent evt)
