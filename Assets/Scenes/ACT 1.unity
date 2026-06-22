@@ -492,7 +492,9 @@ MonoBehaviour:
       Data4: -1997178191
     Path: event:/MenuSFX/CrashPopup
   crash: {fileID: 0}
-  lol: 0
+  farmer: {fileID: 0}
+  free: {fileID: 0}
+  finalCrash: 0
 --- !u!1 &22398637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,6 +6078,7 @@ MonoBehaviour:
   text: {fileID: 517961920}
   on: 0
   outofBounds: {fileID: 1734374791}
+  t: {fileID: 0}
 --- !u!114 &522320162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17544,7 +17547,9 @@ MonoBehaviour:
       Data4: 0
     Path: 
   crash: {fileID: 0}
-  lol: 0
+  farmer: {fileID: 0}
+  free: {fileID: 0}
+  finalCrash: 0
 --- !u!1 &1442273554
 GameObject:
   m_ObjectHideFlags: 0
@@ -20355,6 +20360,13 @@ MonoBehaviour:
       Data3: -820394821
       Data4: 611340221
     Path: event:/GameSFX/OutsideAmbience
+  superScary:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   count: {fileID: 517961922}
   player: {fileID: 1734374788}
   text: {fileID: 517961920}
@@ -21342,6 +21354,98 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746955547}
   m_Mesh: {fileID: -8223828571603864074, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+--- !u!1 &1750898638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750898641}
+  - component: {fileID: 1750898640}
+  - component: {fileID: 1750898639}
+  m_Layer: 0
+  m_Name: fucking work farmhouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1750898639
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750898638}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3434025906570074290, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+  - {fileID: 3349971353781945666, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+  - {fileID: -9217574696804926746, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1750898640
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750898638}
+  m_Mesh: {fileID: 3120209259596046627, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+--- !u!4 &1750898641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750898638}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0.5, z: -4}
+  m_LocalScale: {x: 120, y: 120, z: 120}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758441600
 GameObject:
   m_ObjectHideFlags: 0
@@ -23332,7 +23436,9 @@ MonoBehaviour:
       Data4: 0
     Path: 
   crash: {fileID: 0}
-  lol: 0
+  farmer: {fileID: 0}
+  free: {fileID: 0}
+  finalCrash: 0
 --- !u!1 &1915043989
 GameObject:
   m_ObjectHideFlags: 0
@@ -26954,7 +27060,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+  - {fileID: -9217574696804926746, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27906,3 +28012,4 @@ SceneRoots:
   - {fileID: 424112470}
   - {fileID: 1370490689}
   - {fileID: 543450653712914776}
+  - {fileID: 1750898641}

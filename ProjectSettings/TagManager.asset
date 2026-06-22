@@ -9,6 +9,7 @@ TagManager:
   - birch
   - eye
   - Out
+  - newOut
   layers:
   - Default
   - TransparentFX

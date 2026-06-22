@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerObject
   walkSpeed: 3
   runSpeed: 6
-  jumpPower: 5
-  gravity: 20
+  jumpPower: 3
+  gravity: 10
   TimeSinceStep: 111.66190325422212
   StepCoolDowntime: 1
   lookSpeed: 2

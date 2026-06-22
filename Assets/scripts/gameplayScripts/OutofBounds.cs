@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OutofBounds : MonoBehaviour
 {
-    public bool touching = false;
+    public bool touching = false, final = false;
     public int count = 0;
     public GameObject farmer;
     private Vector3 pos;
@@ -66,17 +66,23 @@ public class OutofBounds : MonoBehaviour
                         break;
                     }
             }
+        } else if(other.gameObject.CompareTag("newOut")&& !touching)
+        {
+            FarmerTalking.instance.talking("COME BACK");
+            FarmerTalking.instance.ShowText();
+            touching = true;
+            final = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Out") && touching)
+        if ((other.gameObject.CompareTag("Out")|| other.gameObject.CompareTag("newOut")) && touching )
         {
             FarmerTalking.instance.HideText();
             touching = false;
             farmer.transform.position = pos;
-            farmer.transform.rotation = Quaternion.Euler(90f, 0f, 90f);
+            //farmer.transform.rotation = Quaternion.Euler(90f, 0f, 90f);
         }
     }
 }
