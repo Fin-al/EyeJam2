@@ -85,4 +85,8 @@ public class OutofBounds : MonoBehaviour
             //farmer.transform.rotation = Quaternion.Euler(90f, 0f, 90f);
         }
     }
+    public void changeFinal()
+    {
+        final = false;
+    }
 }
