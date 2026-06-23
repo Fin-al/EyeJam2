@@ -25,7 +25,20 @@ public class FPSController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     public bool canMove = true;
+    private float surfaceIndex;
 
+    private void Awake()
+    {
+         
+        if (playerData.instance.pop == 5)
+        {
+            surfaceIndex = 6;
+        }else
+        {
+            surfaceIndex = 3;
+        }
+
+    }
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -95,7 +108,7 @@ public class FPSController : MonoBehaviour
 
     private void PlayFootstep()
     {
-        float surfaceIndex = 3;
+        
 
         RuntimeManager.StudioSystem.setParameterByName(surfaceParameter, surfaceIndex);
         FMOD.Studio.EventInstance footstep = RuntimeManager.CreateInstance(footstepEvent);
@@ -108,7 +121,7 @@ public class FPSController : MonoBehaviour
     {
         if (actionEvent.IsNull) return;
 
-        float surfaceIndex = 3;
+      
         RuntimeManager.StudioSystem.setParameterByName(surfaceParameter, surfaceIndex);
 
         FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(actionEvent);

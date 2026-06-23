@@ -1,4 +1,5 @@
 using FMODUnity;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
@@ -16,9 +17,11 @@ public class gameEvents : MonoBehaviour
     public GameObject farmer, act2;
     public OutofBounds OutofBounds;
     Terrain terrain;
+    
     private void Awake()
     {
-         terrain = Terrain.activeTerrain;
+        var texts = new List<string> { "FIND HIM", "THERE IS NOTHING YOU CAN DO", "SURVIVE", "DIE", "YOU ARE NOW ALONE", "I AM FREE, YOU ARE NOT" };
+        terrain = Terrain.activeTerrain;
         terrain.treeDistance = 500;
         pop1 = playerData.instance.pop;
         text.text = $"TALK TO FARMER MAULDER";
@@ -47,7 +50,7 @@ public class gameEvents : MonoBehaviour
             scary = RuntimeManager.CreateInstance(superScary);
             scary.setVolume(0.1f);
             scary.start();
-            text.text = $"FIND HIM";
+            text.text = texts[Random.Range(0, texts.Count)];
         }
     }
     void Update()
@@ -106,7 +109,7 @@ public class gameEvents : MonoBehaviour
         Time.timeScale = 0;
         OnDestroy();
     }
-    private void OnDestroy()
+    public void OnDestroy()
     {
         menuMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         menuMusicInstance.release();

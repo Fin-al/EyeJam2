@@ -6,6 +6,7 @@ public class OutofBounds : MonoBehaviour
     public int count = 0;
     public GameObject farmer;
     private Vector3 pos;
+    public gameEvents gevent;
     private void Awake()
     {
         pos = farmer.transform.position;
@@ -72,6 +73,7 @@ public class OutofBounds : MonoBehaviour
             FarmerTalking.instance.ShowText();
             touching = true;
             final = true;
+            gevent.OnDestroy();
         }
     }
 

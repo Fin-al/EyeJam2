@@ -74,7 +74,7 @@ public class MainMenu : MonoBehaviour
     }
     private void OnButtonClicked()
     {
-        if (playerData.instance.pop != 4)
+        if (playerData.instance.pop != 4 &&  playerData.instance.pop != 5)
         {
             RuntimeManager.PlayOneShot(click);
             Debug.Log("Pressed");
@@ -93,9 +93,21 @@ public class MainMenu : MonoBehaviour
     }
     private void exit()
     {
-        playerData.instance.changePop(1);
+        playerData.instance.changePop(5);
+        OnDestroy();
+        SceneManager.LoadSceneAsync(3);
+       /* if (playerData.instance.pop == 5)
+        {
+            playerData.instance.changePop(5);
+            OnDestroy();
+            SceneManager.LoadSceneAsync(3);
+        } else
+        {
+            playerData.instance.changePop(1);
+            Application.Quit();
+        }*/
         
-        Application.Quit();
+
     }
     private void OnButtonHover(PointerEnterEvent evt)
     {

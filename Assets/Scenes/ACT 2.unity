@@ -1287,6 +1287,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109797417}
   m_Mesh: {fileID: -8223828571603864074, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+--- !u!1 &138464541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2784466900881661662, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+  m_PrefabInstance: {fileID: 1193310706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &138464542
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138464541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3120209259596046627, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
 --- !u!1 &165605654
 GameObject:
   m_ObjectHideFlags: 0
@@ -12606,8 +12633,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutofBounds
   touching: 0
+  final: 0
   count: 0
   farmer: {fileID: 2096145788}
+  gevent: {fileID: 0}
 --- !u!1 &1037466561
 GameObject:
   m_ObjectHideFlags: 0
@@ -15519,6 +15548,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2488092858898685642, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1193310718}
+    - targetCorrespondingSourceObject: {fileID: 2784466900881661662, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 138464542}
     - targetCorrespondingSourceObject: {fileID: -7631519033783230797, guid: 533c6fbde7439cf4ea9f465b50053ade, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1193310714}
