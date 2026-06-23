@@ -93,7 +93,7 @@ public class MainMenu : MonoBehaviour
     }
     private void exit()
     {
-        playerData.instance.changePop(4);
+        playerData.instance.changePop(1);
         
         Application.Quit();
     }

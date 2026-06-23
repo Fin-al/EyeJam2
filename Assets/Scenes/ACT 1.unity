@@ -6078,7 +6078,7 @@ MonoBehaviour:
   text: {fileID: 517961920}
   on: 0
   outofBounds: {fileID: 1734374791}
-  t: {fileID: 0}
+  t: {fileID: 20872891}
 --- !u!114 &522320162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21026,6 +21026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutofBounds
   touching: 0
+  final: 0
   count: 0
   farmer: {fileID: 168091084}
 --- !u!54 &1734374792
